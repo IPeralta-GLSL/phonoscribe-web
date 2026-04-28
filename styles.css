@@ -321,11 +321,97 @@ body {
     line-height: 1.8;
 }
 
+.btn-download-main {
+    position: relative;
+}
+
+.btn-download-main svg {
+    width: 20px;
+    height: 20px;
+    transition: transform 0.3s ease;
+}
+
+.btn-download-main:hover svg {
+    transform: translateY(3px);
+}
+
+.btn-other-os {
+    position: relative;
+    cursor: pointer;
+    user-select: none;
+}
+
+.btn-other-os svg {
+    width: 16px;
+    height: 16px;
+    transition: transform 0.3s ease;
+}
+
+.btn-other-os.active svg {
+    transform: rotate(180deg);
+}
+
+.os-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    margin-top: 8px;
+    background: var(--white);
+    border-radius: 12px;
+    box-shadow: 
+        0 10px 40px rgba(97, 47, 110, 0.2),
+        0 0 0 1px var(--gray-200);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 100;
+    overflow: hidden;
+}
+
+.os-dropdown.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.os-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 20px;
+    color: var(--gray-700);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
+    border-bottom: 1px solid var(--gray-100);
+}
+
+.os-option:last-child {
+    border-bottom: none;
+}
+
+.os-option:hover {
+    background: var(--violet-pale);
+    color: var(--violet-primary);
+    padding-left: 28px;
+}
+
+.os-option svg {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+}
+
 .hero-buttons {
     display: flex;
-    gap: 20px;
+    flex-direction: column;
+    gap: 12px;
     margin-bottom: 28px;
     animation: fadeInUp 1s ease-out 0.7s both;
+    align-items: flex-start;
 }
 
 .btn {
