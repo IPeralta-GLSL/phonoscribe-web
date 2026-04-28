@@ -411,6 +411,52 @@ body {
         inset 0 1px 0 rgba(255,255,255,0.8);
 }
 
+.hero-platforms {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+    animation: fadeInUp 1s ease-out 1s both;
+    flex-wrap: wrap;
+}
+
+.platform-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--white);
+    color: var(--gray-700);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    border: 1px solid var(--gray-200);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    transition: all 0.3s ease;
+}
+
+.platform-badge:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(97, 47, 110, 0.15);
+    border-color: var(--violet-light);
+}
+
+.platform-badge svg {
+    width: 16px;
+    height: 16px;
+}
+
+.platform-badge:first-child svg {
+    color: #00a4ef;
+}
+
+.platform-badge:nth-child(2) svg {
+    color: #fcc624;
+}
+
+.platform-badge:last-child svg {
+    color: #999;
+}
+
 .hero-visual {
     display: flex;
     justify-content: center;
