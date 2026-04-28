@@ -168,30 +168,27 @@ document.addEventListener('DOMContentLoaded', function() {
     function getOS() {
         const userAgent = window.navigator.userAgent;
         const platform = window.navigator.platform;
-        const mac = { win: /Win/i, mac: /Mac/i, linux: /Linux/i };
+        const os = { win: /Win/i, mac: /Mac/i, linux: /Linux/i };
         
-        if (mac.win.test(platform) || mac.win.test(userAgent)) return 'windows';
-        if (mac.mac.test(platform) || mac.mac.test(userAgent)) return 'macos';
-        if (mac.linux.test(platform) || mac.linux.test(userAgent)) return 'linux';
+        if (os.win.test(platform) || os.win.test(userAgent)) return 'windows';
+        if (os.mac.test(platform) || os.mac.test(userAgent)) return 'macos';
+        if (os.linux.test(platform) || os.linux.test(userAgent)) return 'linux';
         return 'unknown';
     }
 
     function updateDownloadButton() {
         const os = getOS();
-        const icon = downloadBtn.querySelector('svg');
-        let osIcon = '';
+        const iconEl = document.getElementById('osIcon');
         
         if (os === 'windows') {
-            osIcon = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.9-1.801"/></svg>';
+            iconEl.className = 'iconoir-windows-os os-icon';
         } else if (os === 'macos') {
-            osIcon = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.99-.79-3.33-.79-1.33 0-2 .74-3.32.8-1.31.04-2.3-1.06-3.05-2.25-.76-1.19-1.38-2.9-1.38-5.29 0-4.13 3.23-6.58 6.89-6.58 3.63 0 5.69 2.44 5.69 6.58 0 2.39-.62 4.1-1.45 5.96zM9.03 8.5c-2.73 0-4.95 2.23-4.95 4.96s2.22 4.96 4.95 4.96 4.95-2.23 4.95-4.96-2.22-4.96-4.95-4.96z"/></svg>';
+            iconEl.className = 'iconoir-apple-mac os-icon';
         } else if (os === 'linux') {
-            osIcon = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.504 0c-.155 0-.315.008.48.475 4.249 2.477 8.754 4.832 10.606 5.55.353.135.687.235 1.063.236.376 0 .72-.1 1.063-.236 1.852-.718 6.357-3.073 10.607-5.55.794-.467.634-1.32-.161-1.475-2.058-.403-6.78-1.018-9.502-1.335-.316-.097-.633-.175-.96-.254-1.427.336-2.807.66-3.59.844-.83.195-1.74-.356-1.734-.844-.006-.488 2.113-.812 4.406-1.168-.68-.18-2.206-.522-2.917-.726-.66-.19-1.381-.388-2.002-.58-1.03.26-2.218.588-2.752.843z"/></svg>';
+            iconEl.className = 'iconoir-linux os-icon';
         } else {
-            osIcon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>';
+            iconEl.className = 'iconoir-download-simple os-icon';
         }
-        
-        icon.outerHTML = osIcon;
     }
 
     if (downloadBtn) {
